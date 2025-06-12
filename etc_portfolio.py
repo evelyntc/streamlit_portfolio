@@ -4,117 +4,123 @@ import streamlit.components.v1 as components
 # --- Page config ---
 st.set_page_config(page_title="evelyntc portfolio", layout="wide")
 
-# --- Sidebar navigation ---
-st.sidebar.title("Start Here ⤵️")
-page = st.sidebar.selectbox("Go to", ["About Me", "Projects", "Resume & Contact"])
+# --- Top Navigation Bar ---
+st.markdown(
+    """
+    <style>
+    .top-nav {
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px 40px 0 0;
+        background-color: transparent;
+    }
+    .top-nav a {
+        margin-left: 30px;
+        text-decoration: none;
+        font-weight: 500;
+        color: white;
+        font-size: 18px;
+    }
+    .top-nav a:hover {
+        color: #cccccc;
+    }
+    </style>
+    <div class="top-nav">
+        <a href="?section=about">About Me</a>
+        <a href="?section=projects">Projects</a>
+        <a href="?section=resume">Resume & Contact</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
-# --- About Me Page ---
-if page == "About Me":
+# --- Section Handling ---
+query_params = st.query_params
+section = query_params.get("section", "about")
+
+# --- ABOUT SECTION ---
+if section == "about":
     st.title("Hi, I'm Evelyn")
 
-    # --- Headshot and Intro ---
-    col1, col2 = st.columns([1,3])
+    col1, col2 = st.columns([1, 3])
     with col1:
         st.image("headshot.png", width=250)
     with col2:
         st.markdown("""
-        <div style="
-            background-color: #FAF0ED;
-            padding: 16px;
-            border-radius: 10px;
-            border-left: 6px solid #EDE7E3;
-            font-size: 16px;
-            color: #000000;
-        ">
-        <p>
-        I’m a data analyst who sits at the intersection of data and business. I love working with data and translating it into clear, actionable insights through compelling storytelling.
-        <br><br>
-        I'm passionate about people—understanding consumers, their experiences, and how they engage with products.
-        </p>
-        </div>
-        """, unsafe_allow_html=True)
-        st.subheader("That's the short version though... It didn't start this way. Here's the whole story ⤵️")
+            <div style="
+                background-color: #FAF0ED;
+                padding: 16px;
+                border-radius: 10px;
+                border-left: 6px solid #EDE7E3;
+                font-size: 16px;
+                color: #000000;
+            ">
+            <p>
+            I’m a data analyst who sits at the intersection of data and business.
+            I love working with data and translating it into clear, actionable insights through compelling storytelling.
+            </p>
+            </div>
+            """, unsafe_allow_html=True)
 
-    # --- Journey Header ---
-    st.markdown("- - - -")
-    st.header("🚘 My Journey")
+    st.subheader("That's the short version though... It didn't start this way. Here's the whole story ⤵️")
 
-    # --- Timeline Data ---
-    timeline = [
+    timeline_entries = [
         {
-            "year": "🏰 2011",
+            "year": "2011",
             "title": "Joined Disney",
-            "desc": "Worked across teams in Attractions, Entertainment, Resorts, and Guest Research. Learned how to measure and improve experiences.",
+            "desc": "Worked across Attractions, Entertainment, Resorts, and Guest Research.",
+            "img": "https://via.placeholder.com/600x200?text=Disney"
         },
         {
-            "year": "🎓 2014",
-            "title": "Graduated with a Marketing Degree",
-            "desc": "Started my journey in consumer behavior and branding.",
+            "year": "2014",
+            "title": "Graduated UCF",
+            "desc": "Earned a Bachelor's degree in Marketing.",
+            "img": "https://via.placeholder.com/600x200?text=UCF+Graduation"
         },
         {
-            "year": "🤔 2015-2018",
-            "title": "Figuring out what comes next",
-            "desc": "Explored various career paths before finding my passion in data.",
+            "year": "2015–2018",
+            "title": "Exploration & Discovery",
+            "desc": "Figured out what comes next, attended Disney Data Conference.",
+            "img": "https://via.placeholder.com/600x200?text=Analytics+Conference"
         },
         {
-            "year": "📚 2021",
-            "title": "Earned my Master’s in Data Science",
-            "desc": "Decided to get technical—diving into Python, SQL, and analytics to build real insights.",
+            "year": "2021",
+            "title": "Master’s in Data Science",
+            "desc": "Graduated and dove deep into Python, SQL, and analytics.",
+            "img": "https://via.placeholder.com/600x200?text=Graduated+M.S.+in+Data+Science"
         },
         {
-            "year": "🚀 Now",
-            "title": "Data Analyst & Storyteller",
-            "desc": "Today, I blend business context with technical skill to help companies understand their customers and make data-driven decisions.",
+            "year": "2023",
+            "title": "Sr. Consumer Insights Analyst",
+            "desc": "Blending business and data to understand consumer behavior.",
+            "img": "https://via.placeholder.com/600x200?text=Consumer+Insights"
         },
     ]
 
-    # --- Down Arrow Between Entries ---
-    arrow_html = """
-    <div style="text-align:center; font-size:32px; margin: -16px 0 16px 0;">⬇️</div>
-    """
+    st.markdown("## 📍 Career Timeline")
+    for item in timeline_entries:
+        with st.expander(f"**{item['year']} — {item['title']}**", expanded=False):
+            st.image(item["img"], use_column_width=True)
+            st.write(item["desc"])
 
-    # --- Display Timeline ---
-    for i, item in enumerate(timeline):
-        with st.container():
-            st.markdown(f"""
-                <div style="
-                    border-left: 4px solid #E0D4C9;
-                    padding: 16px;
-                    margin-bottom: 20px;
-                    background-color: #FFFCFA;
-                    border-radius: 6px;
-                    color: #000000;
-                ">
-                    <h4 style="margin-bottom: 0; color: #000000;">{item['year']} — {item['title']}</h4>
-                    <p style="margin-top: 4px; color: #000000;">{item['desc']}</p>
-                </div>
-            """, unsafe_allow_html=True)
+# --- PROJECTS SECTION ---
+elif section == "projects":
+    st.header("🚧 Projects Under Construction 🚧")
+    st.write("This section is still under construction. In the meantime, here are a few links:")
+    st.markdown("[Grad School Portfolio](https://evelyntc.github.io/Portfolio/projects.html)  \n"
+                "[Medium Blog](https://evelyntc.medium.com/)")
 
-        if i < len(timeline) - 1:
-            st.markdown(arrow_html, unsafe_allow_html=True)
-            st.markdown("<hr style='border-top: 1px dashed #CCC;'>", unsafe_allow_html=True)
-
-# --- Projects Page ---
-elif page == "Projects":
-    st.title("🚧 Projects Under Construction 🚧")
-    st.subheader("In the meantime, check out previous work I've done 👇")
-    st.markdown("[Grad School Portfolio](https://evelyntc.github.io/Portfolio/projects.html) | [Medium Blog](https://evelyntc.medium.com/)")
-
-# --- Resume & Contact Page ---
-elif page == "Resume & Contact":
-    st.title("📝 Resume & Contact")
+# --- RESUME SECTION ---
+elif section == "resume":
+    st.header("📝 Resume & Contact")
     drive_file_id = "1OUIPE0JB5_5-wsiJMeQlj5QAQaZZVG2z"
     embed_link = f"https://drive.google.com/file/d/{drive_file_id}/preview"
     components.iframe(embed_link, height=800)
-
-    st.info("📥 Want a copy? Feel free to contact me directly.")
-
-    st.subheader("Contact")
     st.write("[Connect with me on LinkedIn](https://linkedin.com/in/evelyntcates)")
 
+# --- STATCOUNTER ---
 st.markdown("""
-<!-- Default Statcounter code for streamlit_portfolio
-http://evelyntc.streamlit.app -->
+<!-- Statcounter Code -->
 <script type="text/javascript">
 var sc_project=13141013; 
 var sc_invisible=1; 
@@ -129,4 +135,4 @@ class="statcounter"
 src="https://c.statcounter.com/13141013/0/1e0c10d8/1/"
 alt="web counter"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->""",unsafe_allow_html=True)
+""", unsafe_allow_html=True)
