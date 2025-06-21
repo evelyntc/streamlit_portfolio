@@ -4,6 +4,39 @@ import streamlit.components.v1 as components
 # --- Page config ---
 st.set_page_config(page_title="evelyntc portfolio", layout="wide")
 
+#global dark mode
+
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #000000 !important;
+        color: white !important;
+    }
+    .stApp {
+        background-color: #000000 !important;
+        color: white !important;
+    }
+    .block-container {
+        background-color: #000000 !important;
+    }
+    .css-1d391kg, .css-18e3th9 {
+        background-color: #000000 !important;
+    }
+    .css-1cpxqw2, .stMarkdown {
+        color: white !important;
+    }
+    h1, h2, h3, h4, h5, h6, p {
+        color: white !important;
+    }
+    a {
+        color: #EDE7E3 !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # --- Top Navigation Bar ---
 st.markdown(
     """
@@ -47,52 +80,63 @@ if section == "about":
         st.image("headshot.png", width=250)
     with col2:
         st.markdown("""
-            <div style="
-                background-color: #FAF0ED;
-                padding: 16px;
-                border-radius: 10px;
-                border-left: 6px solid #EDE7E3;
-                font-size: 16px;
-                color: #000000;
-            ">
-            <p>
-            I’m a data analyst who sits at the intersection of data and business.
-            I love working with data and translating it into clear, actionable insights through compelling storytelling.
-            </p>
-            </div>
-            """, unsafe_allow_html=True)
+        <div style="
+            background-color: #000000;
+            padding: 16px;
+            border-radius: 10px;
+            border-left: 6px solid #EDE7E3;
+            border-right: 6px solid #EDE7E3;
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: -10px;
+        ">
+        <p style="margin: 0;">
+        🎬 Hi, I’m Evelyn a data analyst with a deep love for entertainment and a sharp eye for sentiment. I specialize in uncovering how people feel, act, and engage with media from theme parks to movie reviews. With a background rooted in guest experience and consumer research, I bring data to life through clear, actionable insights and approachable storytelling.
+        <br><br>
+        Whether I’m analyzing audience sentiment, designing dashboards, or simplifying complex findings, I’m most energized when helping teams understand their users and make confident, human-centered decisions.
+        </p>
+        </div>
+        """, unsafe_allow_html=True)
 
-    st.subheader("That's the short version though... It didn't start this way. Here's the whole story ⤵️")
+    # Subheader appears with minimal spacing below the box
+    st.markdown("""
+        <div style="margin-top: -10px;">
+            <h3 style="margin: 0;">
+                That's the short version though... It didn't start this way. Here's the whole career journey ⤵️
+            </h3>
+        </div>
+    """, unsafe_allow_html=True)
 
+    # --- Timeline Entries ---
     timeline_entries = [
         {
             "year": "2011",
             "title": "Joined Disney",
-            "desc": "Worked across Attractions, Entertainment, Resorts, and Guest Research.",
+            "desc": "Began my career working at Walt Disney World, working across Attractions, Entertainment, Resorts, and Guest Research. This is where I first became curious about how consumers interact with experiences and what becomes memorable during their vacation.",
             "img": "https://via.placeholder.com/600x200?text=Disney"
         },
         {
             "year": "2014",
-            "title": "Graduated UCF",
-            "desc": "Earned a Bachelor's degree in Marketing.",
+            "title": "Got my first data job and graduated from University of Central Florida",
+            "desc": "Started working in Revenue Mgmt doing data entry for resort inventory and I earned a Bachelor's degree in Marketing, where I gained a foundation in consumer behavior and brand strategy",
             "img": "https://via.placeholder.com/600x200?text=UCF+Graduation"
         },
         {
             "year": "2015–2018",
             "title": "Exploration & Discovery",
-            "desc": "Figured out what comes next, attended Disney Data Conference.",
+            "desc": "Spent this period reconnecting with what I valued most creativity, people, and storytelling. Attended the Disney Data & Analytics Conference, where I discovered a new path in data. This led me to diving into the world of data and getting my masters degree in data science.", 
             "img": "https://via.placeholder.com/600x200?text=Analytics+Conference"
         },
         {
             "year": "2021",
             "title": "Master’s in Data Science",
-            "desc": "Graduated and dove deep into Python, SQL, and analytics.",
+            "desc": "Graduated with a Master’s in Data Science from Bellevue University. Built a strong foundation in Python, SQL, and Data Storytelling",
             "img": "https://via.placeholder.com/600x200?text=Graduated+M.S.+in+Data+Science"
         },
         {
             "year": "2023",
-            "title": "Sr. Consumer Insights Analyst",
-            "desc": "Blending business and data to understand consumer behavior.",
+            "title": "Consumer Insights Sr. Analyst",
+            "desc": "In my current role, I blend business strategy and data analytics to uncover what drives consumer decisions—translating complex data into actionable stories.",
             "img": "https://via.placeholder.com/600x200?text=Consumer+Insights"
         },
     ]
@@ -117,6 +161,7 @@ elif section == "resume":
     embed_link = f"https://drive.google.com/file/d/{drive_file_id}/preview"
     components.iframe(embed_link, height=800)
     st.write("[Connect with me on LinkedIn](https://linkedin.com/in/evelyntcates)")
+
 
 # --- STATCOUNTER ---
 st.markdown("""
