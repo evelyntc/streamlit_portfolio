@@ -4,8 +4,7 @@ import streamlit.components.v1 as components
 # --- Page config ---
 st.set_page_config(page_title="evelyntc portfolio", layout="wide")
 
-#global dark mode
-
+# --- Global Dark Mode ---
 st.markdown(
     """
     <style>
@@ -91,60 +90,64 @@ if section == "about":
             margin-bottom: -10px;
         ">
         <p style="margin: 0;">
-        🎬 Hi, I’m Evelyn a data analyst with a deep love for entertainment and a sharp eye for sentiment. I specialize in uncovering how people feel, act, and engage with media from theme parks to movie reviews. With a background rooted in guest experience and consumer research, I bring data to life through clear, actionable insights and approachable storytelling.
+        🎬 Hi, I’m Evelyn. A data analyst with a deep love for entertainment and a sharp eye for sentiment. I specialize in uncovering how people feel, act, and engage with media from theme parks to movie reviews. With a background rooted in guest experience and consumer research, I bring data to life through clear, actionable insights and approachable storytelling.
         <br><br>
         Whether I’m analyzing audience sentiment, designing dashboards, or simplifying complex findings, I’m most energized when helping teams understand their users and make confident, human-centered decisions.
         </p>
         </div>
         """, unsafe_allow_html=True)
 
-    # Subheader appears with minimal spacing below the box
     st.markdown("""
-        <div style="margin-top: -10px;">
-            <h3 style="margin: 0;">
-                That's the short version though... It didn't start this way. Here's the whole career journey ⤵️
-            </h3>
-        </div>
+    <div style="margin-top: -10px;">
+        <h3 style="margin: 0;">
+            That's the short version though... It didn't start this way. Here's the whole career journey ⤵️
+        </h3>
+    </div>
     """, unsafe_allow_html=True)
 
-    # --- Timeline Entries ---
     timeline_entries = [
         {
             "year": "2011",
             "title": "Joined Disney",
             "desc": "Began my career working at Walt Disney World, working across Attractions, Entertainment, Resorts, and Guest Research. This is where I first became curious about how consumers interact with experiences and what becomes memorable during their vacation.",
-            "img": "https://via.placeholder.com/600x200?text=Disney"
+            "img": ["nemo.jpeg"]
         },
         {
             "year": "2014",
             "title": "Got my first data job and graduated from University of Central Florida",
-            "desc": "Started working in Revenue Mgmt doing data entry for resort inventory and I earned a Bachelor's degree in Marketing, where I gained a foundation in consumer behavior and brand strategy",
-            "img": "https://via.placeholder.com/600x200?text=UCF+Graduation"
+            "desc": "Started working in Revenue Mgmt doing data entry for resort inventory and I earned a Bachelor's degree in Marketing, where I gained a foundation in consumer behavior and brand strategy.",
+            "img": ["welcome.jpeg", "ucfgrad.jpeg"]
         },
         {
             "year": "2015–2018",
             "title": "Exploration & Discovery",
-            "desc": "Spent this period reconnecting with what I valued most creativity, people, and storytelling. Attended the Disney Data & Analytics Conference, where I discovered a new path in data. This led me to diving into the world of data and getting my masters degree in data science.", 
-            "img": "https://via.placeholder.com/600x200?text=Analytics+Conference"
+            "desc": "Spent this period reconnecting with what I valued most—creativity, people, and storytelling. Attended the Disney Data & Analytics Conference, where I discovered a new path in data. This led me to diving into the world of data and getting my masters degree in data science.",
+            "img": ["ddac16.jpg", "trad.jpeg"]
         },
         {
             "year": "2021",
-            "title": "Master’s in Data Science",
-            "desc": "Graduated with a Master’s in Data Science from Bellevue University. Built a strong foundation in Python, SQL, and Data Storytelling",
-            "img": "https://via.placeholder.com/600x200?text=Graduated+M.S.+in+Data+Science"
+            "title": "10 year work anniversary at Disney and got my Master’s in Data Science",
+            "desc": "Graduated with a Master’s in Data Science from Bellevue University. Built a strong foundation in Python, SQL, and Data Storytelling. Also got my 10 year plaque at Disney!",
+            "img": ["10yr.jpeg"]
         },
         {
             "year": "2023",
             "title": "Consumer Insights Sr. Analyst",
             "desc": "In my current role, I blend business strategy and data analytics to uncover what drives consumer decisions—translating complex data into actionable stories.",
-            "img": "https://via.placeholder.com/600x200?text=Consumer+Insights"
+            "img": ["https://via.placeholder.com/600x200?text=Consumer+Insights"]
         },
     ]
 
     st.markdown("## 📍 Career Timeline")
+
     for item in timeline_entries:
         with st.expander(f"**{item['year']} — {item['title']}**", expanded=False):
-            st.image(item["img"], use_column_width=True)
+            images = item["img"] if isinstance(item["img"], list) else [item["img"]]
+            columns = st.columns(len(images))
+            for col, img_path in zip(columns, images):
+                with col:
+                    st.image(img_path, width=250)
+                    st.markdown("<div style='margin-bottom: 16px;'></div>", unsafe_allow_html=True)
             st.write(item["desc"])
 
 # --- PROJECTS SECTION ---
@@ -161,7 +164,6 @@ elif section == "resume":
     embed_link = f"https://drive.google.com/file/d/{drive_file_id}/preview"
     components.iframe(embed_link, height=800)
     st.write("[Connect with me on LinkedIn](https://linkedin.com/in/evelyntcates)")
-
 
 # --- STATCOUNTER ---
 st.markdown("""
