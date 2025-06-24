@@ -122,7 +122,7 @@ if section == "about":
             "year": "2015–2018",
             "title": "Exploration & Discovery",
             "desc": "Spent this period reconnecting with what I valued most—creativity, people, and storytelling. Attended the Disney Data & Analytics Conference, where I discovered a new path in data. This led me to diving into the world of data and getting my masters degree in data science.",
-            "img": ["ddac16.jpg", "trad.jpeg"]
+            "img": ["ddac16.JPG", "trad.jpeg"]
         },
         {
             "year": "2021",
