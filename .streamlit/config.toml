@@ -1,0 +1,11 @@
+[theme]
+base="dark"
+backgroundColor="#242424"
+borderColor="mediumSlateBlue"
+showWidgetBorder=true
+baseRadius="full"
+
+[theme.sidebar]
+showWidgetBorder=true
+
+#https://docs.streamlit.io/develop/concepts/configuration/theming

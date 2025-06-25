@@ -1,0 +1,33 @@
+{"entries":[
+    {
+        "year": 2011,
+        "title": "Joined Disney",
+        "desc": "Began my career working at Walt Disney World, working across Attractions, Entertainment, Resorts, and Guest Research. This is where I first became curious about how consumers interact with experiences and what becomes memorable during their vacation.",
+        "img": "images/nemo.jpeg"
+    },
+    {
+        "year": 2014,
+        "title": "Got my first data job and graduated from University of Central Florida",
+        "desc": "Started working in Revenue Mgmt doing data entry for resort inventory and I earned a Bachelor's degree in Marketing, where I gained a foundation in consumer behavior and brand strategy.",
+        "img": "images/welcome.jpeg"
+    },
+    {
+        "year": 2019,
+        "title": "Exploration & Discovery",
+        "desc": "Spent this period reconnecting with what I valued most—creativity, people, and storytelling. Attended the Disney Data & Analytics Conference, where I discovered a new path in data. This led me to diving into the world of data and getting my masters degree in data science.",
+        "img": "images/ddac16.JPG"
+    },
+    {
+        "year": 2021,
+        "title": "10 year work anniversary at Disney and got my Master’s in Data Science",
+        "desc": "Graduated with a Master’s in Data Science from Bellevue University. Built a strong foundation in Python, SQL, and Data Storytelling. Also got my 10 year plaque at Disney!",
+        "img": "images/10yr.jpeg"
+    },
+    {
+        "year": 2023,
+        "title": "Consumer Insights Sr. Analyst",
+        "desc": "In my current role, I blend business strategy and data analytics to uncover what drives consumer decisions—translating complex data into actionable stories.",
+        "img": "images/2025.jpeg"
+    }
+]
+}
