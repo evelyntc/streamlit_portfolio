@@ -20,9 +20,9 @@ class PortolioCollection(BaseModel):
 portfolio = PortolioCollection(
     projects=[
         PortfolioProject(
-            title="Sample Project One",
+            title="Bad Bunny Spotify Music Analysis",
             url="https://google.com",
-            description="Sample Project One description",
+            description="Streamlit dashboard highlighting the artists music stream data",
         ),
         PortfolioProject(
             title="Sample Project Two",
