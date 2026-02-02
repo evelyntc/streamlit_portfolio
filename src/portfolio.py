@@ -21,7 +21,7 @@ portfolio = PortolioCollection(
     projects=[
         PortfolioProject(
             title="Bad Bunny Spotify Music Analysis",
-            url="https://google.com",
+            url="https://badbunnydashboard.streamlit.app/",
             description="Streamlit dashboard highlighting the artists music stream data",
         ),
         PortfolioProject(
