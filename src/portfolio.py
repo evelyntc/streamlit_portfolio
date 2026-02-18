@@ -25,9 +25,9 @@ portfolio = PortolioCollection(
             description="Streamlit dashboard highlighting the artists music stream data",
         ),
         PortfolioProject(
-            title="Sample Project Two",
-            url="https://google.com",
-            description="Sample Project two description",
+            title="Interactive Data Quiz",
+            url="https://dataquizapp.streamlit.app/",
+            description="Quiz breakdown data jobs based on users interests. Provides job details and resources.",
         ),
         PortfolioProject(
             title="Sample Project Three",
