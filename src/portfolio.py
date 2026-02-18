@@ -27,7 +27,7 @@ portfolio = PortolioCollection(
         PortfolioProject(
             title="Interactive Data Quiz",
             url="https://dataquizapp.streamlit.app/",
-            description="Quiz breakdown data jobs based on users interests. Provides job details and resources.",
+            description="Helps users understand which data roles would be a good fit based on interests. Provides job details and resources.",
         ),
         PortfolioProject(
             title="Sample Project Three",
